@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         videos.forEach(video => {
             const div = document.createElement('div');
             div.innerHTML = `
-                <iframe width="560" height="315" src="${video.url}" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="${encodeURIComponent(video.url)}" frameborder="0" allowfullscreen></iframe>
                 <button onclick="deleteVideo(${video.id})">Delete</button>
             `;
             videosContainer.appendChild(div);
         });
     };
-
+    
     // Function to fetch and render diet programs
     const fetchDiets = async () => {
         try {
@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    
+
     // Function to fetch and render videos
     const fetchVideos = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/videos');
+            const response = await axios.get('http://localhost:3000/video');
             renderVideos(response.data);
         } catch (error) {
             console.error('Error:', error);
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Initial fetching and rendering
-    fetchDiets();
+ 1
     fetchVideos();
 
     // Event listener for submitting a new diet program
@@ -72,9 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for submitting a new video
     videoForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        console.log('Form submitted');
         const url = videoForm.querySelector('#url').value;
         try {
-            await axios.post('http://localhost:3000/videos', { url });
+            await axios.post('http://localhost:3000/video', { url });
             videoForm.reset();
             fetchVideos();
         } catch (error) {
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to delete a video
     window.deleteVideo = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/videos/${id}`);
+            await axios.delete(`http://localhost:3000/video/${id}`);
             fetchVideos();
         } catch (error) {
             console.error('Error:', error);
