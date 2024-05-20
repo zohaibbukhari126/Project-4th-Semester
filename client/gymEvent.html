@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Event - FitFest 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+        header {
+            background-color: #ff6600;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff6600;
+        }
+        .event-info, .registration {
+            background-color: #333;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+        }
+        .event-info p, .registration p {
+            line-height: 1.6;
+        }
+        .registration form {
+            display: flex;
+            flex-direction: column;
+        }
+        .registration form label {
+            margin: 0.5rem 0 0.2rem;
+        }
+        .registration form input, .registration form button {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .registration form input {
+            background-color: #222;
+            color: #fff;
+        }
+        .registration form input:focus {
+            border-color: #ff6600;
+            outline: none;
+        }
+        .registration form button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .registration form button:hover {
+            background-color: #cc5200;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FitFest 2024</h1>
+        <p>Join us for an exciting day of fitness and fun!</p>
+    </header>
+    <div class="container">
+        <section class="event-info">
+            <h2>Event Information</h2>
+            <p><strong>Date:</strong> June 15, 2024</p>
+            <p><strong>Time:</strong> 9:00 AM - 5:00 PM</p>
+            <p><strong>Location:</strong> Fitness Center, 123 Gym Street, Muscle Town</p>
+            <p>Come and participate in a variety of fitness activities including yoga, spinning, weightlifting, and more. There will be expert trainers, nutrition workshops, and fitness challenges with exciting prizes. Don't miss out on the opportunity to improve your fitness, meet like-minded individuals, and have a great time!</p>
+        </section>
+        <section class="registration">
+            <h2>Register Now</h2>
+            <p>Fill out the form below to secure your spot at FitFest 2024. We look forward to seeing you there!</p>
+            <form action="submit_registration.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
