@@ -27,44 +27,44 @@
             text-align: center;
             color: #ff6600;
         }
-        .event-info, .registration {
+        .event-info, .add-event {
             background-color: #333;
             padding: 1.5rem;
             margin: 1rem 0;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
         }
-        .event-info p, .registration p {
+        .event-info p, .add-event p {
             line-height: 1.6;
         }
-        .registration form {
+        .add-event form {
             display: flex;
             flex-direction: column;
         }
-        .registration form label {
+        .add-event form label {
             margin: 0.5rem 0 0.2rem;
         }
-        .registration form input, .registration form button {
+        .add-event form input, .add-event form textarea, .add-event form button {
             padding: 0.8rem;
             margin-bottom: 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-        .registration form input {
+        .add-event form input, .add-event form textarea {
             background-color: #222;
             color: #fff;
         }
-        .registration form input:focus {
+        .add-event form input:focus, .add-event form textarea:focus {
             border-color: #ff6600;
             outline: none;
         }
-        .registration form button {
+        .add-event form button {
             background-color: #ff6600;
             color: white;
             border: none;
             cursor: pointer;
         }
-        .registration form button:hover {
+        .add-event form button:hover {
             background-color: #cc5200;
         }
     </style>
@@ -82,17 +82,20 @@
             <p><strong>Location:</strong> Fitness Center, 123 Gym Street, Muscle Town</p>
             <p>Come and participate in a variety of fitness activities including yoga, spinning, weightlifting, and more. There will be expert trainers, nutrition workshops, and fitness challenges with exciting prizes. Don't miss out on the opportunity to improve your fitness, meet like-minded individuals, and have a great time!</p>
         </section>
-        <section class="registration">
-            <h2>Register Now</h2>
-            <p>Fill out the form below to secure your spot at FitFest 2024. We look forward to seeing you there!</p>
-            <form action="submit_registration.php" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required>
-                <button type="submit">Register</button>
+        <section class="add-event">
+            <h2>Add Event</h2>
+            <form action="add_event.php" method="post">
+                <label for="event-name">Event Name:</label>
+                <input type="text" id="event-name" name="event_name" required>
+                <label for="event-description">Event Description:</label>
+                <textarea id="event-description" name="event_description" rows="4" required></textarea>
+                <label for="event-date">Event Date:</label>
+                <input type="date" id="event-date" name="event_date" required>
+                <label for="event-time">Event Time:</label>
+                <input type="time" id="event-time" name="event_time" required>
+                <label for="event-location">Event Location:</label>
+                <input type="text" id="event-location" name="event_location" required>
+                <button type="submit">Add Event</button>
             </form>
         </section>
     </div>
