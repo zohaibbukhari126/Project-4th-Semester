@@ -3,190 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>Manage Gym Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff6600;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1, h2 {
+            color: #ff6600;
+        }
+        .form-container, .table-container {
+            background-color: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form label {
+            margin: 0.5rem 0 0.2rem;
+        }
+        form input, form button {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #cc5200;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+        }
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #ffe6cc;
+        }
+        .edit, .delete {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .edit:hover, .delete:hover {
+            background-color: #cc5200;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Your Fitness Dashboard</h1>
-        <nav>
-            <ul>
-                <li><a href="userDashboard.html">Dashboard</a></li>
-                <li><a href="userProfile.html">My Profile</a></li>
-                <li><a href="userProgram.html">Programs</a></li>
-                <li><a href="video.html">Videos</a></li>
-                <li><a href="diet.html">Diet</a></li>
-            </ul>
-        </nav>
+        <h1>Manage Gym Details</h1>
     </header>
-
-    <main>
-        <section id="bmi-graph">
-            <h2>Your BMI Progress</h2>
-            <canvas id="bmiChart"></canvas>
-        </section>
-
-        <section id="events-promotions">
-            <div id="events">
-                <h2>Upcoming Events</h2>
-                <ul>
-                    <li>Yoga Class - May 22</li>
-                    <li>Cardio Blast - May 24</li>
-                    <li>Weight Training - May 25</li>
-                </ul>
-            </div>
-
-            <div id="promotions">
-                <h2>Current Promotions</h2>
-                <p>50% off on all supplements!</p>
-            </div>
-        </section>
-
-        <section id="update-weight">
-            <h2>Update Your Weight</h2>
-            <form id="weight-form">
-                <label for="weight">Enter your current weight:</label>
-                <input type="number" id="weight" name="weight" required>
-                <button type="submit">Update</button>
+    <div class="container">
+        <section class="form-container">
+            <h2>Add New Gym Detail</h2>
+            <form action="add_gym_detail.php" method="post">
+                <label for="name">Gym Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact" required>
+                <button type="submit">Add Gym</button>
             </form>
         </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Fitness App</p>
-    </footer>
-
-    <script src="scripts.js"></script>
-
-    <style>
-        /* General styles */
-        body {
-            background-color: #f1f1f1;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: #ff7f00;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        section {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        section h2 {
-            color: #ff7f00;
-        }
-
-        #bmi-graph {
-            margin-bottom: 20px;
-        }
-
-        #events-promotions {
-            display: flex;
-            gap: 20px;
-        }
-
-        #events, #promotions {
-            flex: 1;
-        }
-
-        #events ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #events li {
-            margin-bottom: 10px;
-        }
-
-        #update-weight {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        #update-weight form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        #update-weight label {
-            margin-bottom: 10px;
-        }
-
-        #update-weight input {
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        #update-weight button {
-            padding: 10px;
-            background-color: #ff7f00;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        #update-weight button:hover {
-            background-color: #e66b00;
-        }
-
-        footer {
-            background-color: #ff7f00;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-    </style>
+        <section class="table-container">
+            <h2>Existing Gym Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gym Name</th>
+                        <th>Location</th>
+                        <th>Contact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gym ABC</td>
+                        <td>123 Fitness St.</td>
+                        <td>(123) 456-7890</td>
+                        <td>
+                            <a href="edit_gym_detail.php?id=1" class="edit">Edit</a>
+                            <a href="delete_gym_detail.php?id=1" class="delete">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gym XYZ</td>
+                        <td>456 Workout Ave.</td>
+                        <td>(234) 567-8901</td>
+                        <td>
+                            <a href="edit_gym_detail.php?id=2" class="edit">Edit</a>
+                            <a href="delete_gym_detail.php?id=2" class="delete">Delete</a>
+                        </td>
+                    </tr>
+                    <!-- Add more gym details as needed -->
+                </tbody>
+            </table>
+        </section>
+    </div>
 </body>
 </html>
