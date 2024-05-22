@@ -25,34 +25,12 @@
         h1, h2 {
             color: #ff6600;
         }
-        .form-container, .table-container {
+        .table-container {
             background-color: white;
             padding: 1.5rem;
             margin: 1rem 0;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        form label {
-            margin: 0.5rem 0 0.2rem;
-        }
-        form input, form button {
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        form button {
-            background-color: #ff6600;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #cc5200;
         }
         table {
             width: 100%;
@@ -95,18 +73,6 @@
         <h1>Manage Gym Details</h1>
     </header>
     <div class="container">
-        <section class="form-container">
-            <h2>Add New Gym Detail</h2>
-            <form action="add_gym_detail.php" method="post">
-                <label for="name">Gym Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required>
-                <label for="contact">Contact:</label>
-                <input type="text" id="contact" name="contact" required>
-                <button type="submit">Add Gym</button>
-            </form>
-        </section>
         <section class="table-container">
             <h2>Existing Gym Details</h2>
             <table>
