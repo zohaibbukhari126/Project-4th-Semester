@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #121212;
+            color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
@@ -15,56 +16,55 @@
             background-color: #ff6600;
             color: white;
             text-align: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
         h1, h2 {
+            color: black
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .details-container {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .detail {
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #333;
+        }
+        .detail span {
+            font-weight: bold;
             color: #ff6600;
         }
-        .table-container {
-            background-color: white;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 1rem;
-            text-align: left;
-        }
-        th {
-            background-color: #ff6600;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #ffe6cc;
+        .actions {
+            margin-top: 1.5rem;
+            text-align: center;
         }
         .edit, .delete {
             background-color: #ff6600;
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             cursor: pointer;
             border-radius: 4px;
             text-decoration: none;
+            margin: 0 0.5rem;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .edit:hover, .delete:hover {
             background-color: #cc5200;
+            transform: scale(1.05);
+        }
+        .edit:active, .delete:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
@@ -73,39 +73,21 @@
         <h1>Manage Gym Details</h1>
     </header>
     <div class="container">
-        <section class="table-container">
+        <section class="details-container">
             <h2>Existing Gym Details</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Gym Name</th>
-                        <th>Location</th>
-                        <th>Contact</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Gym ABC</td>
-                        <td>123 Fitness St.</td>
-                        <td>(123) 456-7890</td>
-                        <td>
-                            <a href="edit_gym_detail.php?id=1" class="edit">Edit</a>
-                            <a href="delete_gym_detail.php?id=1" class="delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gym XYZ</td>
-                        <td>456 Workout Ave.</td>
-                        <td>(234) 567-8901</td>
-                        <td>
-                            <a href="edit_gym_detail.php?id=2" class="edit">Edit</a>
-                            <a href="delete_gym_detail.php?id=2" class="delete">Delete</a>
-                        </td>
-                    </tr>
-                    <!-- Add more gym details as needed -->
-                </tbody>
-            </table>
+            <div class="detail">
+                <span>Gym Name:</span> Gym ABC
+            </div>
+            <div class="detail">
+                <span>Location:</span> 123 Fitness St.
+            </div>
+            <div class="detail">
+                <span>Contact:</span> (123) 456-7890
+            </div>
+            <div class="actions">
+                <a href="edit_gym_detail.php?id=1" class="edit">Edit</a>
+                <a href="delete_gym_detail.php?id=1" class="delete">Delete</a>
+            </div>
         </section>
     </div>
 </body>
