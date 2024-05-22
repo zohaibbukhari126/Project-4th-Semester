@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #000, #222);
+            background: url('gymBG.jpg') no-repeat center center fixed; /* Replace 'your-image-url.jpg' with the URL of your image */
+            background-size: cover;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -24,15 +25,8 @@
             margin: 2rem auto;
             padding: 0 1rem;
         }
-        h1{
-            color: #000;
-        }
-         h2 {
-            color: #ff6600;
+        h1, h2 {
             text-align: center;
-            margin-bottom: 1rem;
-            font-family: 'Verdana', sans-serif;
-            animation: fadeInDown 1s ease-in-out;
         }
         table {
             width: 100%;
@@ -40,10 +34,8 @@
             margin-top: 1rem;
             background-color: rgba(51, 51, 51, 0.9);
             color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease-in-out;
-            border-radius: 10px; /* Border curvature */
-            overflow: hidden; /* Ensure the border curvature is applied */
+            border-radius: 10px;
+            overflow: hidden;
         }
         table, th, td {
             border: 1px solid #ddd;
@@ -68,16 +60,6 @@
             0% {
                 opacity: 0;
                 transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
             }
             100% {
                 opacity: 1;
