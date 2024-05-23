@@ -5,7 +5,7 @@ CREATE TABLE admin (
 );
 
 
-CREATE TABLE "user" (
+CREATE TABLE users (
     login VARCHAR(50) PRIMARY KEY,
     password VARCHAR(50),
     name VARCHAR(100),
@@ -21,8 +21,7 @@ CREATE TABLE "user" (
 CREATE TABLE gym (
     login VARCHAR(50) PRIMARY KEY,
     password VARCHAR(50),
-    gym_details TEXT,
-    upcoming_details TEXT
+    gym_details TEXT
 );
 
 
@@ -44,7 +43,7 @@ CREATE TABLE diet_program (
 );
 
 
-CREATE TABLE program (
+CREATE TABLE programs (
     id SERIAL PRIMARY KEY,
     type VARCHAR(100),
 	diet_program_id INT REFERENCES diet_program(id),

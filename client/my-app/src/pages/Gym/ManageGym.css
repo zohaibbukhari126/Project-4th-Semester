@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    background-color: #ff6600;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  h1, h2 {
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .details-container {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .detail {
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #333;
+  }
+  
+  .detail span {
+    font-weight: bold;
+    color: #ff6600;
+  }
+  
+  .actions {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .edit, .delete {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .edit:hover, .delete:hover {
+    background-color: #cc5200;
+    transform: scale(1.05);
+  }
+  
+  .edit:active, .delete:active {
+    transform: scale(0.95);
+  }
+  
