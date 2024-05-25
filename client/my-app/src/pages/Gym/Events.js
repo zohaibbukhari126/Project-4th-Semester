@@ -6,16 +6,15 @@ const Events = ({ gymId }) => {
   const [events, setEvents] = useState([]);
   const [newEvent, setNewEvent] = useState({
     name: '',
-    description: '',
     date: '',
-    time: '',
-    location: ''
+    event_detail: '',
+    gym: gymId
   });
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get(`/api/gym/events/${gymId}`);
+        const response = await axios.get('gym/events');
         setEvents(response.data);
       } catch (error) {
         console.error('Error fetching events:', error);
@@ -32,10 +31,10 @@ const Events = ({ gymId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/api/gym/events/${gymId}`, newEvent);
+      await axios.post('/gym/events', newEvent);
       alert('Event added successfully!');
       // Refresh events list
-      const response = await axios.get(`/api/gym/events/${gymId}`);
+      const response = await axios.get('/gym/events');
       setEvents(response.data);
     } catch (error) {
       console.error('Error adding event:', error);
@@ -45,7 +44,7 @@ const Events = ({ gymId }) => {
   return (
     <div>
       <header className="header">
-        <h1>FitFest 2024</h1>
+        <h1>FitFest 2025</h1>
         <p>Join us for an exciting day of fitness and fun!</p>
       </header>
       <div className="container">
@@ -55,9 +54,8 @@ const Events = ({ gymId }) => {
             <div key={index}>
               <h3>{event.name}</h3>
               <p><strong>Date:</strong> {event.date}</p>
-              <p><strong>Time:</strong> {event.time}</p>
-              <p><strong>Location:</strong> {event.location}</p>
-              <p>{event.description}</p>
+              <p><strong>Location:</strong> {event.gym}</p>
+              <p>{event.event_detail}</p>
             </div>
           ))}
         </section>
@@ -66,15 +64,10 @@ const Events = ({ gymId }) => {
           <form onSubmit={handleSubmit}>
             <label htmlFor="name">Event Name:</label>
             <input type="text" id="name" name="name" value={newEvent.name} onChange={handleChange} required />
-            <label htmlFor="description">Event Description:</label>
-            <textarea id="description" name="description" value={newEvent.description} onChange={handleChange} rows="4" required></textarea>
             <label htmlFor="date">Event Date:</label>
             <input type="date" id="date" name="date" value={newEvent.date} onChange={handleChange} required />
-            <label htmlFor="time">Event Time:</label>
-            <input type="time" id="time" name="time" value={newEvent.time} onChange={handleChange} required />
-            <label htmlFor="location">Event Location:</label>
-            <
-              input type="text" id="location" name="location" value={newEvent.location} onChange={handleChange} required />
+            <label htmlFor="event_detail">Event Description:</label>
+            <textarea id="event_detail" name="event_detail" value={newEvent.event_detail} onChange={handleChange} rows="4" required></textarea>
             <button type="submit">Add Event</button>
           </form>
         </section>
