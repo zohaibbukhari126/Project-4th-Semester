@@ -22,6 +22,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        
         <Route path="/user/*" element={<Layout userType="user" />}>
           <Route path="dashboard" element={<UserDashboard />} />
           <Route path="profile" element={<UserProfile />} />

@@ -13,7 +13,7 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', { login, password }, { withCredentials: true });
     //   hello in console
-        console.log('hello');
+        
       console.log(response.data); // Assuming server returns user data upon successful login
       // Redirect or do something upon successful login
     } catch (err) {

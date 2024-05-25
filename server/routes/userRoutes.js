@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
-// const registerMiddleware = require('../middleware/registerMiddleware');
-// const loginMiddleware = require('../middleware/loginMiddleware');
+const registerMiddleware = require('../middleware/registerMiddleware');
+const loginMiddleware = require('../middleware/loginMiddleware');
 const { body, validationResult } = require('express-validator');
 
 // Register a user
-// router.use('/register', registerMiddleware);
+router.use('/register', registerMiddleware);
 
-// // Login a user
-// router.use('/login', loginMiddleware);
+
+// Login a user
+router.use('/login', loginMiddleware);
 
 
 // Create a user
@@ -82,6 +83,7 @@ router.put('/:id', async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
 
 // Delete a user
 router.delete('/:id', async (req, res) => {

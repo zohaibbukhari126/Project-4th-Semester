@@ -1,9 +1,9 @@
-// const express = require('express');
-// const router = express.Router();
-// const pool = require('../db');
-// const { body, validationResult } = require('express-validator');
-// const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
+const express = require('express');
+const router = express.Router();
+const pool = require('../db');
+const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 
 router.post(
