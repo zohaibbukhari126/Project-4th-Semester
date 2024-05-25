@@ -11,6 +11,9 @@ app.use(cors(
     origin: 'http://localhost:3000',
     credentials: true
   }
+
+  
+
 ));
 app.use(bodyParser.json());
 
@@ -24,6 +27,12 @@ const eventRoutes = require('./routes/eventRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require('./routes/userRoutes');
 
+
+
+
+
+
+
 // Use routes
 app.use('/api/dietPrograms', dietProgramRoutes);
 app.use('/api/videos', videoRoutes);
@@ -32,6 +41,15 @@ app.use('/api/gyms', gymRoutes);
 app.use('/api/gym/events', eventRoutes);
 app.use('/api/admins', adminRoutes);
 app.use('/api/users', userRoutes);
+
+
+//authentification
+
+
+
+
+
+
 
 // Root route
 app.get('/', (req, res) => {

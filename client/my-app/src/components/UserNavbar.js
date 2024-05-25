@@ -7,21 +7,11 @@ const UserNavbar = () => {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/user/dashboard">User Dashboard</Link>
-        </li>
-        <li>
-          <Link to="/user/profile">User Profile</Link>
-        </li>
-        <li>
-          <Link to="/user/program">User Program</Link>
-        </li>
-        <li>
-          <Link to="/user/video">User Video</Link>
-        </li>
-        <li>
-          <Link to="/user/diet">User Diet</Link>
-        </li>
+        <li><Link to="/user/dashboard">Dashboard</Link></li>
+        <li><Link to="/user/profile">Profile</Link></li>
+        <li><Link to="/user/program">Program</Link></li>
+        <li><Link to="/user/video">Video</Link></li>
+        <li><Link to="/user/diet">Diet</Link></li>
       </ul>
     </nav>
   );

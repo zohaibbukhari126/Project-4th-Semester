@@ -7,12 +7,12 @@ const AdminNavbar = () => {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/admin">Admin Dashboard</Link>
-        </li>
+        <li><Link to="/admin/dashboard">Dashboard</Link></li>
       </ul>
     </nav>
   );
 };
 
 export default AdminNavbar;
+
+

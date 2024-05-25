@@ -45,7 +45,7 @@ router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const admin = await pool.query(
-      "SELECT * FROM admin WHERE id = $1",
+      "SELECT * FROM admin WHERE login = $1",
       [id]
     );
     res.json(admin.rows[0]);
@@ -61,7 +61,7 @@ router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { username, password } = req.body;
     const updateAdmin = await pool.query(
-      "UPDATE admin SET username = $1, password = $2 WHERE id = $3",
+      "UPDATE admin SET username = $1, password = $2 WHERE login = $3",
       [username, password, id]
     );
     res.json("Admin was updated");
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const deleteAdmin = await pool.query(
-      "DELETE FROM admin WHERE id = $1",
+      "DELETE FROM admin WHERE login = $1",
       [id]
     );
     res.json("Admin was deleted");

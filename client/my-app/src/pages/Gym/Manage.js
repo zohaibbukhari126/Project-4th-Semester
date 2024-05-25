@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ManageGym.css';
 
@@ -9,6 +9,20 @@ const Manage = ({ gymId }) => {
     contact: ''
   });
 
+  useEffect(() => {
+    // Fetch existing gym details
+    const fetchGymDetails = async () => {
+      try {
+        const response = await axios.get(`/gyms/${gymId}`);
+        setGymDetails(response.data);
+      } catch (error) {
+        console.error('Error fetching gym details:', error);
+      }
+    };
+
+    fetchGymDetails();
+  }, [gymId]);
+
   const handleChange = (e) => {
     setGymDetails({ ...gymDetails, [e.target.name]: e.target.value });
   };
@@ -16,7 +30,7 @@ const Manage = ({ gymId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/gyms/${gymId}`, gymDetails);
+      await axios.put(`/gyms/${gymId}`, gymDetails);
       alert('Gym details updated successfully!');
     } catch (error) {
       console.error('Error updating gym details:', error);
@@ -32,13 +46,13 @@ const Manage = ({ gymId }) => {
         <section className="details-container">
           <h2>Existing Gym Details</h2>
           <div className="detail">
-            <span>Gym Name:</span> Gym ABC
+            <span>Gym Name:</span> {gymDetails.name}
           </div>
           <div className="detail">
-            <span>Location:</span> 123 Fitness St.
+            <span>Location:</span> {gymDetails.location}
           </div>
           <div className="detail">
-            <span>Contact:</span> (123) 456-7890
+            <span>Contact:</span> {gymDetails.contact}
           </div>
           <form onSubmit={handleSubmit}>
             <label htmlFor="name">Gym Name:</label>

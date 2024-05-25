@@ -1,9 +1,7 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import UserNavbar from './components/UserNavbar';
-import GymNavbar from './components/GymNavbar';
-import AdminNavbar from './components/AdminNavbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './layouts/Layout';
+
 import UserDashboard from './pages/User/Dashboard';
 import UserProfile from './pages/User/Profile';
 import UserProgram from './pages/User/Program';
@@ -14,40 +12,36 @@ import GymEvents from './pages/Gym/Events';
 import GymUsers from './pages/Gym/Users';
 import ManageGym from './pages/Gym/Manage';
 import AdminDashboard from './pages/Admin/AdminDashboard';
+
 import axios from 'axios';
 
 const App = () => {
-  const location = useLocation();
-
   axios.defaults.baseURL = 'http://localhost:5000/api';
   axios.defaults.withCredentials = true;
-  
 
   return (
-    <div>
-      {location.pathname.startsWith('/gym') && <GymNavbar />}
-      {location.pathname.startsWith('/user') && <UserNavbar />}
-      {location.pathname.startsWith('/admin') && <AdminNavbar />}
+    <Router>
       <Routes>
-        <Route path="/user/dashboard" element={<UserDashboard />} />
-        <Route path="/user/profile" element={<UserProfile />} />
-        <Route path="/user/program" element={<UserProgram />} />
-        <Route path="/user/video" element={<UserVideo />} />
-        <Route path="/user/diet" element={<UserDiet />} />
-        <Route path="/gym/dashboard" element={<GymDashboard />} />
-        <Route path="/gym/events" element={<GymEvents />} />
-        <Route path="/gym/users" element={<GymUsers />} />
-        <Route path="/gym/manage" element={<ManageGym />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        
+        <Route path="/user/*" element={<Layout userType="user" />}>
+          <Route path="dashboard" element={<UserDashboard />} />
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="program" element={<UserProgram />} />
+          <Route path="video" element={<UserVideo />} />
+          <Route path="diet" element={<UserDiet />} />
+        </Route>
+        <Route path="/gym/*" element={<Layout userType="gym" />}>
+          <Route path="dashboard" element={<GymDashboard />} />
+          <Route path="events" element={<GymEvents />} />
+          <Route path="users" element={<GymUsers />} />
+          <Route path="manage" element={<ManageGym />} />
+        </Route>
+        <Route path="/admin/*" element={<Layout userType="admin" />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+        </Route>
       </Routes>
-    </div>
+    </Router>
   );
 };
 
-const WrappedApp = () => (
-  <Router>
-    <App />
-  </Router>
-);
-
-export default WrappedApp;
+export default App;
