@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './layouts/Layout';
+import Layout from './layout/Layout';
 
 import UserDashboard from './pages/User/Dashboard';
 import UserProfile from './pages/User/Profile';
@@ -12,6 +12,8 @@ import GymEvents from './pages/Gym/Events';
 import GymUsers from './pages/Gym/Users';
 import ManageGym from './pages/Gym/Manage';
 import AdminDashboard from './pages/Admin/AdminDashboard';
+// login
+
 
 import axios from 'axios';
 
@@ -22,7 +24,6 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        
         <Route path="/user/*" element={<Layout userType="user" />}>
           <Route path="dashboard" element={<UserDashboard />} />
           <Route path="profile" element={<UserProfile />} />
@@ -45,3 +46,5 @@ const App = () => {
 };
 
 export default App;
+
+
