@@ -4,6 +4,8 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
+      background: url('https://i.ibb.co/jMT4M7v/gymBG2.jpg') no-repeat center center fixed;
+    background-size: cover;
   }
   
   .header {
