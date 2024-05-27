@@ -5,10 +5,9 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
 router.post(
   '/',
-  body('email').isEmail(),
+  body('login').isString().notEmpty(),
   body('password').isString().notEmpty(),
   async (req, res) => {
     const errors = validationResult(req);
@@ -17,11 +16,11 @@ router.post(
     }
 
     try {
-      const { email, password } = req.body;
+      const { login, password } = req.body;
       // Check if user exists
       const user = await pool.query(
-        "SELECT * FROM users WHERE email = $1",
-        [email]
+        "SELECT * FROM users WHERE login = $1",
+        [login]
       );
       if (user.rows.length === 0) {
         return res.status(400).json({ msg: 'Invalid credentials' });
@@ -34,7 +33,7 @@ router.post(
       // Generate JWT token
       const payload = {
         user: {
-          id: user.rows[0].id
+          login: user.rows[0].login
         }
       };
       jwt.sign(payload, 'secretKey', { expiresIn: '1h' }, (err, token) => {

@@ -52,15 +52,7 @@ CREATE TABLE programs (
 	 video_id INT REFERENCES video(id)
 );
 
-
-
-
-
--- Drop the existing trigger if it exists
-DROP TRIGGER IF EXISTS update_bmi ON users;
-
--- Drop the existing function if it exists
-DROP FUNCTION IF EXISTS calculate_bmi;
+-- Triggers
 
 -- Create the function to calculate and round BMI to two decimal places
 CREATE OR REPLACE FUNCTION calculate_bmi()

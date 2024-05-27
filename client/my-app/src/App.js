@@ -12,8 +12,7 @@ import GymEvents from './pages/Gym/Events';
 import GymUsers from './pages/Gym/Users';
 import ManageGym from './pages/Gym/Manage';
 import AdminDashboard from './pages/Admin/AdminDashboard';
-// login
-
+import Login from './pages/login/Login'; // Import the Login component
 
 import axios from 'axios';
 
@@ -24,6 +23,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/login" element={<Login />} /> {/* Add the login route */}
         <Route path="/user/*" element={<Layout userType="user" />}>
           <Route path="dashboard" element={<UserDashboard />} />
           <Route path="profile" element={<UserProfile />} />
@@ -46,5 +46,3 @@ const App = () => {
 };
 
 export default App;
-
-
