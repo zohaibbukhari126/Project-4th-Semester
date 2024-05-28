@@ -1,9 +1,10 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #000, #222);
-    color: #fff;
-    margin: 0;
-    padding: 0;
+            background: url('https://i.ibb.co/QQKFq0k/gymBG3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            padding: 0;
 }
 header {
     background: linear-gradient(135deg, #ff6600, #ff3300);
