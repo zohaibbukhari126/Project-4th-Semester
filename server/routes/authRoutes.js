@@ -5,7 +5,7 @@ const loginMiddleware = require('../middleware/loginMiddleware');
 const User = require('../models/User');
 
 // Login route
-router.post('/login', loginMiddleware, async (req, res) => {
+router.post('/login',  async (req, res) => {
   try {
     const { login, password } = req.body;
     const user = await User.findById(login);

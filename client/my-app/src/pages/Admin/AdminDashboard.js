@@ -47,7 +47,7 @@ const AdminDashboard = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('/users'); // Replace with your API endpoint
+      const response = await axios.get('/user'); // Replace with your API endpoint
       if (response.data) {
         setUsers(response.data);
       } else {
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`/users/${userId}`); // Replace with your API endpoint
+      await axios.delete(`/user/${userId}`); // Replace with your API endpoint
       fetchUsers(); // Refresh user list after deletion
     } catch (error) {
       console.error('Error deleting user:', error);
@@ -94,7 +94,7 @@ const AdminDashboard = () => {
              
                 <Td>
                   <Button onClick={() => handleEdit(user.id)}>Edit</Button>
-                  <Button onClick={() => handleDelete(user.id)}>Delete</Button>
+                  <Button onClick={() => handleDelete(user.login)}>Delete</Button>
                 </Td>
               </tr>
             ))}

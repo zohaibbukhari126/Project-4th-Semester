@@ -50,7 +50,7 @@ app.use('/api/programs', programRoutes);
 app.use('/api/gyms', gymRoutes);
 app.use('/api/gym/events', eventRoutes);
 app.use('/api/admins', adminRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/user', userRoutes);
 app.use('/api/login', loginRoutes);
 app.use('/api/auth', require('./routes/authRoutes'));
 

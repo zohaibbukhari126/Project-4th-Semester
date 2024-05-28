@@ -259,7 +259,7 @@ footer a:hover {
 
 label img{
 	
-	/* more small */
+	
 	width: 25px;
 	height: 25px;
 	
@@ -269,10 +269,9 @@ label img{
 .signup-options {
 	display: flex;
 	justify-content: center;
-	gap: 20px; /* Adjust the gap as needed */
-	margin-bottom: 20px; /* Adjust spacing below the options if necessary */
+	gap: 20px; 
+	margin-bottom: 20px; 
 }
-
 .signup-options label {
 	display: flex;
 	flex-direction: column;
