@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const UserDiet = () => {
   // Define a sample weekly food guide
   const weeklyFoodGuide = [
@@ -13,11 +14,11 @@ const UserDiet = () => {
     <div>
       <h1>Diet</h1>
       
-      {/* Display a general overview */}
-      <p>Here's a general diet plan for you:</p>
+
       
-      {/* Render weekly food guide */}
-      <h2>Weekly Food Guide</h2>
+      
+   
+      <h2 style={{ color: 'orange' }}>Weekly Food Guide</h2>
       <table>
         <thead>
           <tr>

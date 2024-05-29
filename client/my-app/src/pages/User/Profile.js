@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 
 const Profile = () => {
-  // Define initial profile data
+
   const [profile, setProfile] = useState({
-    name: 'Your Name',
+    name: 'Zohaib Abbas',
     age: 20,
     weight: 80,
     height: "5'11"
   });
 
-  // State for editing mode
+
   const [isEditing, setIsEditing] = useState(false);
+
+  const tableAnimation = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 500 },
+  });
 
   // Handle input change
   const handleInputChange = (e) => {
@@ -26,40 +33,40 @@ const Profile = () => {
     setIsEditing(true);
   };
 
-  // Handle save button click
+ 
   const handleSaveClick = () => {
     setIsEditing(false);
-    // Here you can add logic to save the updated profile data
+    
   };
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <table className="profile-table">
+    <div style={{ textAlign: 'center' }}>
+      <h1 style={{ color: '#333', marginBottom: '20px' }}>Profile</h1>
+      <animated.table style={{ margin: '20px auto', borderCollapse: 'collapse', width: '60%', ...tableAnimation }}>
         <tbody>
           <tr>
-            <td>Name:</td>
-            <td>{isEditing ? <input type="text" name="name" value={profile.name} onChange={handleInputChange} /> : profile.name}</td>
+            <td style={{ padding: '10px', border: '1px solid #ddd' }}>Name:</td>
+            <td>{isEditing ? <input type="text" name="name" value={profile.name} onChange={handleInputChange} style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ddd' }} /> : profile.name}</td>
           </tr>
           <tr>
-            <td>Age:</td>
-            <td>{isEditing ? <input type="number" name="age" value={profile.age} onChange={handleInputChange} /> : profile.age}</td>
+            <td style={{ padding: '10px', border: '1px solid #ddd' }}>Age:</td>
+            <td>{isEditing ? <input type="number" name="age" value={profile.age} onChange={handleInputChange} style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ddd' }} /> : profile.age}</td>
           </tr>
           <tr>
-            <td>Weight:</td>
-            <td>{isEditing ? <input type="number" name="weight" value={profile.weight} onChange={handleInputChange} /> : profile.weight}</td>
+            <td style={{ padding: '10px', border: '1px solid #ddd' }}>Weight:</td>
+            <td>{isEditing ? <input type="number" name="weight" value={profile.weight} onChange={handleInputChange} style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ddd' }} /> : profile.weight}</td>
           </tr>
           <tr>
-            <td>Height:</td>
-            <td>{isEditing ? <input type="text" name="height" value={profile.height} onChange={handleInputChange} /> : profile.height}</td>
+            <td style={{ padding: '10px', border: '1px solid #ddd' }}>Height:</td>
+            <td>{isEditing ? <input type="text" name="height" value={profile.height} onChange={handleInputChange} style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ddd' }} /> : profile.height}</td>
           </tr>
         </tbody>
-      </table>
+      </animated.table>
       {/* Show edit or save button based on editing mode */}
       {isEditing ? (
-        <button onClick={handleSaveClick} className="btn">Save</button>
+        <button onClick={handleSaveClick} style={{ backgroundColor: '#008CBA', border: 'none', color: 'white', padding: '10px 20px', textAlign: 'center', textDecoration: 'none', display: 'inline-block', fontSize: '16px', marginTop: '20px', cursor: 'pointer', borderRadius: '5px' }}>Save</button>
       ) : (
-        <button onClick={handleEditClick} className="btn">Edit</button>
+        <button onClick={handleEditClick} style={{ backgroundColor: '#f44336', border: 'none', color: 'white', padding: '10px 20px', textAlign: 'center', textDecoration: 'none', display: 'inline-block', fontSize: '16px', marginTop: '20px', cursor: 'pointer', borderRadius: '5px' }}>Edit</button>
       )}
     </div>
   );

@@ -104,7 +104,7 @@ const AuthForm = () => {
 			<div className='form-container sign-in-container'>
 				<form onSubmit={handleLogin}>
 					<h1>Sign in</h1>
-					<span>or use your account</span>
+					<span>Here</span>
 					<input
 						type='email'
 						placeholder='Email'

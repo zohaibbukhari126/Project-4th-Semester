@@ -39,7 +39,7 @@ const Button = styled.button`
 `;
 
 const AdminDashboard = () => {
-  const [users, setUsers] = useState([]); // Initialize as an empty array
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetchUsers();
@@ -47,22 +47,25 @@ const AdminDashboard = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('/user'); // Replace with your API endpoint
+      const response = await axios.get('/user'); 
       if (response.data) {
         setUsers(response.data);
       } else {
-        setUsers([]); // Fallback to an empty array
+        setUsers([]); 
       }
     } catch (error) {
       console.error('Error fetching users:', error);
-      setUsers([]); // Set to empty array on error
+      setUsers([]); 
     }
   };
 
   const handleEdit = (userId) => {
-    // Implement edit functionality here
+    
+ 
+
     console.log(`Edit user with ID: ${userId}`);
   };
+
 
   const handleDelete = async (userId) => {
     try {
@@ -76,11 +79,11 @@ const AdminDashboard = () => {
   return (
     <Container>
       <h1>Admin Dashboard</h1>
-      {users && users.length > 0 ? ( // Conditional rendering based on users length
+      {users && users.length > 0 ? ( 
         <Table>
           <thead>
             <tr>
-              <Th>ID</Th>
+            
               <Th>Name</Th>
               
               <Th>Actions</Th>
@@ -89,11 +92,11 @@ const AdminDashboard = () => {
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
-                <Td>{user.id}</Td>
+                
                 <Td>{user.name}</Td>
              
                 <Td>
-                  <Button onClick={() => handleEdit(user.id)}>Edit</Button>
+                  
                   <Button onClick={() => handleDelete(user.login)}>Delete</Button>
                 </Td>
               </tr>

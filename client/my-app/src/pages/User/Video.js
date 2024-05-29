@@ -1,4 +1,43 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+`;
+
+const Title = styled.h1`
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #343a40;
+`;
+
+const Card = styled.div`
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+`;
+
+const VideoTitle = styled.h2`
+  font-size: 1.5em;
+  color: #495057;
+  margin-bottom: 15px;
+`;
+
+const VideoFrame = styled.iframe`
+  width: 100%;
+  height: 315px;
+  border: none;
+  border-radius: 8px;
+`;
 
 const UserVideo = () => {
   // Define video URLs
@@ -9,47 +48,38 @@ const UserVideo = () => {
   };
 
   return (
-    <div>
-      <h1>Video</h1>
+    <Container>
+      <Title>Video</Title>
       
       {/* Display all videos */}
-      <div>
-        <h2>Overweight</h2>
-        <iframe
+      <Card>
+        <VideoTitle>Overweight</VideoTitle>
+        <VideoFrame
           title="Overweight Video"
-          width="560"
-          height="315"
           src={videoUrls.overweight}
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div>
-        <h2>Underweight</h2>
-        <iframe
+          allowFullScreen
+        ></VideoFrame>
+      </Card>
+      <Card>
+        <VideoTitle>Underweight</VideoTitle>
+        <VideoFrame
           title="Underweight Video"
-          width="560"
-          height="315"
           src={videoUrls.underweight}
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div>
-        <h2>Normal</h2>
-        <iframe
+          allowFullScreen
+        ></VideoFrame>
+      </Card>
+      <Card>
+        <VideoTitle>Normal</VideoTitle>
+        <VideoFrame
           title="Normal Video"
-          width="560"
-          height="315"
           src={videoUrls.normal}
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+          allowFullScreen
+        ></VideoFrame>
+      </Card>
+    </Container>
   );
 };
 

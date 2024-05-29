@@ -105,3 +105,20 @@ LEFT JOIN programs p ON u.program_id = p.id
 LEFT JOIN diet_program dp ON p.diet_program_id = dp.id
 LEFT JOIN video v ON p.video_id = v.id;
 
+
+
+//gym exists trigger
+CREATE OR REPLACE FUNCTION check_gym_exists()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM gym WHERE login = NEW.gym) THEN
+        RAISE EXCEPTION 'Gym % does not exist', NEW.gym;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER check_gym_exists_trigger
+BEFORE INSERT OR UPDATE OF gym ON users
+FOR EACH ROW
+EXECUTE FUNCTION check_gym_exists();
